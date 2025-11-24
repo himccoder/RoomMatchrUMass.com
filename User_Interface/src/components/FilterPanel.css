@@ -1,0 +1,8 @@
+.filter-panel { background: white; border: 1px solid #ddd; padding: 16px; }
+.filter-instructions { font-size: 13px; color: #666; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
+.filter-group { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
+.filter-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.filter-title { font-size: 13px; font-weight: 700; color: #333; margin: 0 0 8px; }
+.filter-options { display: flex; flex-direction: column; gap: 6px; }
+.filter-option { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #555; cursor: pointer; }
+.filter-option input[type="checkbox"] { cursor: pointer; accent-color: #881c1c; }

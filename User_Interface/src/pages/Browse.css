@@ -1,0 +1,15 @@
+.browse-page { background: #f8f9fa; min-height: calc(100vh - 60px); }
+.browse-container { max-width: 1400px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 280px 1fr; gap: 24px; }
+.browse-content { min-width: 0; }
+.browse-header { margin-bottom: 16px; }
+.browse-header h1 { font-size: 24px; color: #333; margin: 0 0 4px; }
+.results-count { font-size: 14px; color: #666; margin: 0; }
+.browse-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+@media (max-width: 968px) {
+  .browse-container { grid-template-columns: 1fr; gap: 24px; }
+  .browse-cards-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .browse-cards-grid { grid-template-columns: 1fr; }
+  .browse-container { padding: 20px 16px; }
+}

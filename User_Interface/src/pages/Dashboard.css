@@ -1,0 +1,13 @@
+.dashboard { max-width: 1400px; margin: 0 auto; padding: 24px; }
+.browse-section { margin-bottom: 32px; }
+.recommendations-section { margin-bottom: 24px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.section-header h2 { font-size: 24px; color: #333; margin: 0; }
+.view-all-link { color: #881c1c; text-decoration: none; font-weight: 600; }
+.browse-grid, .recommendations-grid { display: grid; gap: 20px; }
+.browse-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.recommendations-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+@media (max-width: 768px) {
+  .browse-grid, .recommendations-grid { grid-template-columns: 1fr; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

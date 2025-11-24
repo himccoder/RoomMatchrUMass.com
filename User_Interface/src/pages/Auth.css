@@ -1,0 +1,14 @@
+.auth-page { min-height: 100vh; background: #f8f9fa; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.auth-container { width: 100%; max-width: 450px; }
+.auth-box { background: white; border: 1px solid #ddd; padding: 32px; }
+.auth-box h2 { font-size: 24px; color: #881c1c; margin: 0 0 8px; text-align: center; }
+.auth-box h3 { font-size: 18px; color: #333; margin: 0 0 24px; text-align: center; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 6px; }
+.form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; font-size: 14px; font-family: inherit; }
+.form-group input:focus { outline: none; border-color: #881c1c; }
+.auth-btn { width: 100%; padding: 12px; background: #881c1c; color: white; border: none; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 8px; }
+.auth-footer { margin-top: 24px; text-align: center; padding-top: 20px; border-top: 1px solid #ddd; }
+.auth-footer p { font-size: 14px; color: #666; margin: 0; }
+.auth-footer a { color: #881c1c; text-decoration: none; font-weight: 600; }
+.auth-footer a:hover { text-decoration: underline; }

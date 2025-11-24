@@ -1,0 +1,18 @@
+.roommate-card { background: white; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
+.card-avatar { background: #f0f0f0; height: 180px; display: flex; align-items: center; justify-content: center; }
+.avatar-placeholder { width: 80px; height: 80px; background: #881c1c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; }
+.card-content { padding: 12px; }
+.card-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px; }
+.card-name { font-size: 16px; font-weight: 600; color: #333; margin: 0; }
+.favorite-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #ccc; }
+.card-info { display: flex; gap: 8px; margin-bottom: 8px; font-size: 14px; color: #666; }
+.info-separator { color: #ccc; }
+.match-percent { margin-bottom: 8px; }
+.match-bar { height: 4px; background: #e0e0e0; margin-bottom: 4px; }
+.match-fill { height: 100%; background: #4caf50; }
+.match-text { font-size: 13px; font-weight: 600; color: #4caf50; }
+.card-description { font-size: 14px; color: #555; line-height: 1.4; margin: 0 0 12px; }
+.card-actions { display: flex; gap: 8px; }
+.view-profile-btn, .message-btn { flex: 1; padding: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.view-profile-btn { background: white; color: #881c1c; border: 1px solid #881c1c; }
+.message-btn { background: #881c1c; color: white; border: none; }

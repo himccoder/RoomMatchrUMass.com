@@ -1,0 +1,19 @@
+.account-settings-page { background: #f8f9fa; min-height: calc(100vh - 60px); padding: 24px; }
+.settings-container { max-width: 900px; margin: 0 auto; }
+.settings-container h1 { font-size: 24px; color: #333; margin: 0 0 4px; }
+.page-subtitle { font-size: 14px; color: #666; margin: 0 0 24px; }
+.settings-section { background: white; border: 1px solid #ddd; padding: 24px; margin-bottom: 20px; }
+.section-header { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
+.section-header h2 { font-size: 20px; color: #333; margin: 0 0 4px; }
+.section-description { font-size: 14px; color: #666; margin: 0; }
+.settings-content { display: flex; flex-direction: column; gap: 16px; }
+.preference-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #f9f9f9; border: 1px solid #ddd; }
+.preference-info h3, .danger-info h3 { font-size: 15px; font-weight: 600; color: #333; margin: 0; }
+.btn-save-preferences { padding: 10px 24px; background: #881c1c; color: white; border: none; font-size: 14px; font-weight: 600; cursor: pointer; align-self: flex-start; margin-top: 8px; }
+.danger-section { border: 2px solid #ffcdd2; }
+.danger-item { padding: 20px; background: #fff9f9; border: 1px solid #ffcdd2; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.danger-item-delete { background: #ffebee; border-color: #ef5350; }
+.danger-info { flex: 1; }
+.btn-disable, .btn-delete { padding: 10px 20px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+.btn-disable { background: #ff9800; color: white; }
+.btn-delete { background: #d32f2f; color: white; }

@@ -32,7 +32,7 @@ The application will start at: http://localhost:8080
 **Request Body**
 ```json
 {
-  "username": "john_doe",
+  "name": "john_doe",
   "email": "john@example.com",
   "password": "mypassword123"
 }

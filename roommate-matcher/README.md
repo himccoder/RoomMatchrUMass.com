@@ -44,6 +44,19 @@ The application will start at: http://localhost:8080
     "message": "User registered successfully"
 }
 ```
+**Failure Responses**
+```json
+{
+    "success": false,
+    "message": "Email must be a valid umass.edu address"
+}
+```
+```json
+{
+    "success": false,
+    "message": "User with this email already exists. Login instead."
+}
+```
 
 ### 2. Login User
 **Method:** POST  
@@ -61,5 +74,12 @@ The application will start at: http://localhost:8080
 {
     "success": true,
     "message": "Login successful"
+}
+```
+**Failure Response**
+```json
+{
+    "success": false,
+    "message": "Invalid credentials"
 }
 ```

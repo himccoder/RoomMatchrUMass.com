@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 // Create table for requests. 
 @Data
 @Entity
-@Table(name = "roommate_requests")
+@Table(name = "requests")
 public class Request {
 
     // Auto generated primary id for the table.

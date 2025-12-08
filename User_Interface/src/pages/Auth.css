@@ -12,3 +12,6 @@
 .auth-footer p { font-size: 14px; color: #666; margin: 0; }
 .auth-footer a { color: #881c1c; text-decoration: none; font-weight: 600; }
 .auth-footer a:hover { text-decoration: underline; }
+.auth-error { background: #fee; border: 1px solid #fcc; color: #c00; padding: 12px; margin-bottom: 20px; font-size: 14px; border-radius: 4px; }
+.auth-btn:disabled { background: #ccc; cursor: not-allowed; }
+.form-hint { font-size: 12px; color: #666; margin-top: 4px; display: block; }

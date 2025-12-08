@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cs520group8.roommatematcher.dto.ApiResponse;
 import com.cs520group8.roommatematcher.dto.LoginRequest;
+import com.cs520group8.roommatematcher.dto.LoginResponse;
 import com.cs520group8.roommatematcher.dto.RegisterRequest;
 import com.cs520group8.roommatematcher.service.AuthService;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/auth")
 public class AuthController {
     private final AuthService authService;
+    
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
@@ -27,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
         return authService.loginUser(request);
     }
 }

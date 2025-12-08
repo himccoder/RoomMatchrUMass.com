@@ -1,13 +1,35 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useAuth } from '../context/AuthContext'
+import { messageAPI } from '../services/api'
 import './AppLayout.css'
 
 function AppLayout() {
   const [showUserMenu, setShowUserMenu] = useState(false)
+  const [unreadCount, setUnreadCount] = useState(0)
   const navigate = useNavigate()
+  const { user, logout } = useAuth()
+
+  // Fetch unread message count
+  useEffect(() => {
+    async function fetchUnreadCount() {
+      if (user?.id) {
+        try {
+          const count = await messageAPI.getUnreadCount(user.id)
+          setUnreadCount(count)
+        } catch (error) {
+          console.error('Failed to fetch unread count:', error)
+        }
+      }
+    }
+    fetchUnreadCount()
+    // Poll every 30 seconds for new messages
+    const interval = setInterval(fetchUnreadCount, 30000)
+    return () => clearInterval(interval)
+  }, [user?.id])
 
   const handleSignOut = () => {
-    // TODO: Handle sign out logic
+    logout()
     navigate('/login')
   }
 
@@ -24,7 +46,10 @@ function AppLayout() {
         <nav className="header-nav">
           <Link to="/dashboard" className="nav-link">Dashboard</Link>
           <Link to="/browse" className="nav-link">Browse</Link>
-          <Link to="/chat" className="nav-link">Chat</Link>
+          <Link to="/chat" className="nav-link">
+            Chat
+            {unreadCount > 0 && <span className="unread-badge">{unreadCount}</span>}
+          </Link>
         </nav>
 
         <div className="header-right">
@@ -34,11 +59,16 @@ function AppLayout() {
               onClick={() => setShowUserMenu(!showUserMenu)}
             >
               <span className="user-icon">👤</span>
+              <span className="user-name">{user?.name || 'User'}</span>
               <span className="dropdown-arrow">▼</span>
             </button>
             
             {showUserMenu && (
               <div className="user-dropdown">
+                <div className="dropdown-header">
+                  <strong>{user?.name}</strong>
+                  <small>{user?.email}</small>
+                </div>
                 <Link 
                   to="/account-settings" 
                   className="dropdown-item"
@@ -54,7 +84,7 @@ function AppLayout() {
                   Roommate Profile
                 </Link>
                 <button 
-                  className="dropdown-item"
+                  className="dropdown-item logout-btn"
                   onClick={handleSignOut}
                 >
                   Sign Out

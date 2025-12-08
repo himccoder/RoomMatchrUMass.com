@@ -10,3 +10,35 @@ Our application would prioritize safety by providing secure authorization and au
 ## Details on Running Application and Backend
 
 Please refer to the inner README.md file at https://github.com/himccoder/RoomMatchrUMass.com/blob/main/roommate-matcher/README.md
+
+
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         FRONTEND (React)                                │
+│                      http://localhost:5173                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│  Login/Signup  │  Browse  │  Profile  │  Chat  │  Filters              │
+│       ↓             ↓          ↓          ↓          ↓                  │
+│              api.js (API Service Layer)                                 │
+└──────────────────────────┬──────────────────────────────────────────────┘
+                           │ HTTP REST API
+                           ↓
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      BACKEND (Spring Boot)                              │
+│                      http://localhost:8080                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│  AuthController  │  ProfileController  │  MessageController            │
+│       ↓                   ↓                     ↓                       │
+│  AuthService     │  ProfileService     │  MessageService               │
+│       ↓                   ↓                     ↓                       │
+│  UserRepository  │  UserRepository     │  MessageRepository            │
+└──────────────────────────┬──────────────────────────────────────────────┘
+                           │ JDBC (MySQL Connector)
+                           ↓
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      MySQL DATABASE                                     │
+│                   172.31.57.159:3306                                    │
+│                   roommate_matchr_db                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│  users  │  messages  │  roommate_requests                              │
+└─────────────────────────────────────────────────────────────────────────┘

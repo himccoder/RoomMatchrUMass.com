@@ -1,16 +1,16 @@
 import "./FilterPanel.css";
 
 function FilterPanel({ filters = {}, onChange }) {
-  function handleChange(field, value, e) {
-    const updatedFilters = { ...filters };
-
-    if (e.target.checked) {
-      updatedFilters[field] = value;
-    } else {
-      updatedFilters[field] = null;
-    }
-
-    onChange(updatedFilters);
+  function handleChange(field, value) {
+    return function (e) {
+      const updatedFilters = { ...filters };
+      if (e.target.checked) {
+        updatedFilters[field] = value;
+      } else {
+        updatedFilters[field] = null;
+      }
+      onChange(updatedFilters);
+    };
   }
 
   return (

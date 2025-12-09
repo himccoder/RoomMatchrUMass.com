@@ -12,14 +12,3 @@ Our application would prioritize safety by providing secure authorization and au
 ## Details on Running Application and Backend
 
 Please refer to the inner README.md file at https://github.com/himccoder/RoomMatchrUMass.com/blob/main/roommate-matcher/README.md
-
-## 1️⃣ Install MySQL
-
-### macOS
-
-```bash
-brew install mysql
-brew services start mysql
-# Assuming you havent setup a password, should work the first time you install mysql
-mysql -u root
-```

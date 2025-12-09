@@ -1,5 +1,8 @@
 package com.cs520group8.roommatematcher.service;
 
-public class UserService {
+import com.cs520group8.roommatematcher.dto.UserDTO;
+import java.util.List;
 
+public interface UserService {
+    List<UserDTO> getAllUsers();
 }

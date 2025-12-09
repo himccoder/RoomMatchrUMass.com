@@ -1,5 +1,10 @@
 package com.cs520group8.roommatematcher.dto;
 
-public class UserDTO {
+import lombok.Data;
 
+@Data
+public class UserDTO {
+    private Long id;
+    private String name;
+    private String email;
 }

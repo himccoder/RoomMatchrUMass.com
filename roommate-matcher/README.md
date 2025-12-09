@@ -101,40 +101,6 @@ The application will start at: http://localhost:8080
   "message": "Invalid credentials"
 }
 ```
-### 3. Submit User Survey
-
-**Method:** POST  
-**URL:** `/api/survey/submit`
-
-**Request Body**
-```json
-{
-  "userId": 1,
-  "sleepSchedule": "EARLY_BIRD",
-  "foodType": "VEGETARIAN",
-  "personalityType": "INTROVERT",
-  "petsPreference": "OKAY_WITH_PETS",
-  "smokingPreference": "PREFER_NON_SMOKER_ONLY"
-}
-```
-Note: To see all possible options that request body can take, please refer to: roommate-matcher/src/main/java/com/cs520group8/roommatematcher/model
-
-**Success Response**
-
-```json
-{
-    "success": true,
-    "message": "Survey submitted successfully."
-}
-```
-**Failure Response**
-
-```json
-{
-    "success": false,
-    "message": "Survey already submitted by this user."
-}
-```
 
 ## Steps to Integrate SQL server
 

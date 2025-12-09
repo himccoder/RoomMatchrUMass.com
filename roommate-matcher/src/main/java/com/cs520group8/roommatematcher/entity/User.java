@@ -21,7 +21,4 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // profile public?
-    // preferences to standard question set, store as array of numbers, used for
-    // score generation
 }

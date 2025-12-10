@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import com.cs520group8.roommatematcher.dto.UserDTO;
 import com.cs520group8.roommatematcher.dto.UserFilterRequest;
+import com.cs520group8.roommatematcher.dto.UserWithScoreDTO;
 import com.cs520group8.roommatematcher.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,12 @@ public class UserController {
     @PostMapping("/getFilteredUsers")
     public ResponseEntity<List<UserDTO>> getFilteredUsers(@RequestBody UserFilterRequest filters) {
         List<UserDTO> users = userService.getFilteredUsers(filters);
+        return ResponseEntity.ok(users);
+    }
+
+    @PostMapping("/getRecommendedUsers")
+    public ResponseEntity<List<UserWithScoreDTO>> getRecommendedUsers(Long userId) {
+        List<UserWithScoreDTO> users = userService.getRecommendedUsers(userId);
         return ResponseEntity.ok(users);
     }
 }

@@ -101,12 +101,14 @@ The application will start at: http://localhost:8080
   "message": "Invalid credentials"
 }
 ```
+
 ### 3. Submit User Survey
 
 **Method:** POST  
 **URL:** `/api/survey/submit`
 
 **Request Body**
+
 ```json
 {
   "userId": 1,
@@ -117,41 +119,51 @@ The application will start at: http://localhost:8080
   "smokingPreference": "PREFER_NON_SMOKER_ONLY"
 }
 ```
+
 Note: To see all possible options that request body can take, please refer to: roommate-matcher/src/main/java/com/cs520group8/roommatematcher/model
 
 **Success Response**
 
 ```json
 {
-    "success": true,
-    "message": "Survey submitted successfully."
+  "success": true,
+  "message": "Survey submitted successfully."
 }
 ```
+
 **Failure Response**
 
 ```json
 {
-    "success": false,
-    "message": "Survey already submitted by this user."
+  "success": false,
+  "message": "Survey already submitted by this user."
 }
 ```
 
 ## Steps to Integrate SQL server
 
 ### macOS
+
 Install MySQL using below command:
+
 ```bash
 brew install mysql
 ```
+
 Start the server using below command:
+
 ```bash
 brew services start mysql
 ```
+
 To connect to server locally, use below command:
+
 ```bash
 mysql -u root
 ```
+
 A user needs to be set up with permissions for this application. To do so, follow the below commands:
+
 ```sql
 CREATE USER 'roommate_user'@'localhost' IDENTIFIED BY 'roommate_pass';
 
@@ -159,8 +171,11 @@ GRANT ALL PRIVILEGES ON roommate_matchr_db.* TO 'roommate_user'@'localhost';
 
 FLUSH PRIVILEGES;
 ```
+
 To create the database for the application, use below command:
+
 ```sql
 CREATE DATABASE roommate_matchr_db;
 ```
+
 The tables will be created when the application starts up automatically.

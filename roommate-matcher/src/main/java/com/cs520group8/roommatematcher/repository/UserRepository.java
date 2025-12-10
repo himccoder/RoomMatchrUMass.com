@@ -8,4 +8,6 @@ import com.cs520group8.roommatematcher.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
+
+    Optional<User> findById(Long id);
 }

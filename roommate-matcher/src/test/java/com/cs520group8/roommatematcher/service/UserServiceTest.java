@@ -1,4 +1,4 @@
-package com.cs520group8.roommatematcher.ServiceTests;
+package com.cs520group8.roommatematcher.service;
 
 import com.cs520group8.roommatematcher.dto.UserDTO;
 import com.cs520group8.roommatematcher.dto.UserFilterRequest;
@@ -7,8 +7,6 @@ import com.cs520group8.roommatematcher.entity.UserSurvey;
 import com.cs520group8.roommatematcher.model.SleepSchedule;
 import com.cs520group8.roommatematcher.repository.SurveyRepository;
 import com.cs520group8.roommatematcher.repository.UserRepository;
-import com.cs520group8.roommatematcher.service.ScoreService;
-import com.cs520group8.roommatematcher.service.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -50,7 +48,7 @@ public class UserServiceTest {
         userService = new UserServiceImpl(userRepository, surveyRepository, scoreService);
     }
 
-    //  GET ALL USERS TESTS ------------------
+    //  Get All Users API Tests
 
     @Test
     @DisplayName("getAllUsers - Should return all users as DTOs")
@@ -88,7 +86,7 @@ public class UserServiceTest {
         assertTrue(result.isEmpty());
     }
 
-    //  GET FILTERED USERS TESTS ------------------
+    //  Get Filtered Users API Tests
 
     @Test
     @DisplayName("getFilteredUsers - Should filter users by sleep schedule")
@@ -138,8 +136,6 @@ public class UserServiceTest {
         //  No users should match
         assertTrue(result.isEmpty());
     }
-
-    //  HELPER METHODS ------------------
 
     /**
      * Helper method to create a User entity for testing.

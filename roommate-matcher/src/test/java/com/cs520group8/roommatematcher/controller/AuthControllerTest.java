@@ -1,9 +1,8 @@
-package com.cs520group8.roommatematcher.ControllerTests.ControllerTests;
+package com.cs520group8.roommatematcher.controller;
 
 import com.cs520group8.roommatematcher.dto.ApiResponse;
 import com.cs520group8.roommatematcher.dto.LoginRequest;
 import com.cs520group8.roommatematcher.dto.RegisterRequest;
-import com.cs520group8.roommatematcher.controller.AuthController;
 import com.cs520group8.roommatematcher.service.AuthService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -23,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Unit tests for AuthController.
  * 
- * These aer the tests for /api/auth/register and /api/auth/login endpoints.
+ * These are the tests for /api/auth/register and /api/auth/login endpoints.
  * Uses MockMvc to simulate HTTP requests without starting a full server.
  */
 
@@ -40,7 +39,7 @@ public class AuthControllerTest {
     @Autowired
     private ObjectMapper objectMapper; //  This is used to convert JSON to Java objects and vice versa
 
-    //  REGISTER ENDPOINT TESTS ------------------
+    //  Register API Tests
 
     @Test
     @DisplayName("POST /api/auth/register - Success: Should register a new user")
@@ -65,7 +64,7 @@ public class AuthControllerTest {
                 .andExpect(jsonPath("$.message").value("User registered successfully"));
     }
 
-    //  LOGIN ENDPOINT TESTS ------------------
+    //  Login API Tests
 
     @Test
     @DisplayName("POST /api/auth/login - Success: Should login existing user")

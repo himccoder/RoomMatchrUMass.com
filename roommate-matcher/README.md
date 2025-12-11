@@ -1,6 +1,6 @@
 # Roommate Matcher Backend (Spring Boot)
 
-This is the backend REST API for the Roommate Matcher application. It is built using Spring Boot, it uses an in-memory H2 database for development and testing. SQL DB to be added soon.
+This is the backend REST API for the Roommate Matcher application. It is built using Spring Boot. It is integrated with MySQL server which serves as the database of the application.
 
 ## Getting Started
 
@@ -138,6 +138,103 @@ Note: To see all possible options that request body can take, please refer to: r
   "success": false,
   "message": "Survey already submitted by this user."
 }
+```
+
+### 4. Get List of All Users
+
+**Method:** POST  
+**URL:** `/api/users/getAllUsers`
+
+**Request Body**
+
+```json
+{}
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "id": 1
+  },
+  {
+    "name": "Jack Williams",
+    "email": "jack@example.com",
+    "id": 2
+  },
+  {
+    "name": "Toby Pitt",
+    "email": "toby@example.com",
+    "id": 3
+  }
+]
+```
+
+### 5. Get List of Filtered Users
+
+**Method:** POST  
+**URL:** `/api/users/getFilteredUsers`
+
+**Request Body**
+
+```json
+{
+  "sleepSchedule": "NIGHT_OWL",
+  "foodType": "VEGETARIAN",
+  "personalityType": "INTROVERT",
+  "petsPreference": "NO_PETS",
+  "smokingPreference": "NO_PREFERENCE"
+}
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "id": 1
+  },
+  {
+    "name": "Jack Williams",
+    "email": "jack@example.com",
+    "id": 2
+  }
+]
+```
+
+### 6. Get List of Recommended Users
+
+**Method:** POST  
+**URL:** `/api/users/getRecommendedUsers`
+
+**Request Body**
+
+```json
+{
+  "userId": 1
+}
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "id": 1
+  },
+  {
+    "name": "Jack Williams",
+    "email": "jack@example.com",
+    "id": 2
+  }
+]
 ```
 
 ## Steps to Integrate SQL server

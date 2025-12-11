@@ -48,7 +48,7 @@ public class UserServiceTest {
         userService = new UserServiceImpl(userRepository, surveyRepository, scoreService);
     }
 
-    // ==================== GET ALL USERS TESTS ====================
+    //  GET ALL USERS TESTS ------------------
 
     @Test
     @DisplayName("getAllUsers - Should return all users as DTOs")
@@ -59,10 +59,10 @@ public class UserServiceTest {
 
         when(userRepository.findAll()).thenReturn(Arrays.asList(alice, bob));
 
-        // ACT: Call the service method
+        //  Call the service method
         List<UserDTO> result = userService.getAllUsers();
 
-        // ASSERT: Verify correct number and data
+        // Verify correct number and data
         assertEquals(2, result.size());
         assertEquals("Alice", result.get(0).getName());
         assertEquals("alice@example.com", result.get(0).getEmail());
@@ -76,22 +76,22 @@ public class UserServiceTest {
     @Test
     @DisplayName("getAllUsers - Should return empty list when no users exist")
     void testGetAllUsers_ReturnsEmptyList() {
-        // ARRANGE: Return empty list from repository
+        //  Return empty list from repository
         when(userRepository.findAll()).thenReturn(Collections.emptyList());
 
-        // ACT
+    
         List<UserDTO> result = userService.getAllUsers();
 
-        // ASSERT
+        
         assertTrue(result.isEmpty());
     }
 
-    // ==================== GET FILTERED USERS TESTS ====================
+    //  GET FILTERED USERS TESTS ------------------
 
     @Test
     @DisplayName("getFilteredUsers - Should filter users by sleep schedule")
     void testGetFilteredUsers_BySleepSchedule() {
-        // ARRANGE: Create users and surveys
+        // Create users and surveys
         User alice = createUser(1L, "Alice", "alice@example.com");
         User bob = createUser(2L, "Bob", "bob@example.com");
 
@@ -110,10 +110,10 @@ public class UserServiceTest {
         when(surveyRepository.findByUserId(1L)).thenReturn(Optional.of(aliceSurvey));
         when(surveyRepository.findByUserId(2L)).thenReturn(Optional.of(bobSurvey));
 
-        // ACT
+    
         List<UserDTO> result = userService.getFilteredUsers(filters);
 
-        // ASSERT: Only Alice should match (early bird)
+        //  Only Alice should match (early bird)
         assertEquals(1, result.size());
         assertEquals("Alice", result.get(0).getName());
     }
@@ -121,7 +121,7 @@ public class UserServiceTest {
     @Test
     @DisplayName("getFilteredUsers - Should exclude users without survey")
     void testGetFilteredUsers_ExcludesUsersWithoutSurvey() {
-        // ARRANGE: User without survey
+        //  User without survey
         User alice = createUser(1L, "Alice", "alice@example.com");
 
         UserFilterRequest filters = new UserFilterRequest();
@@ -130,14 +130,14 @@ public class UserServiceTest {
         when(userRepository.findAll()).thenReturn(Arrays.asList(alice));
         when(surveyRepository.findByUserId(1L)).thenReturn(Optional.empty());
 
-        // ACT
+    
         List<UserDTO> result = userService.getFilteredUsers(filters);
 
-        // ASSERT: No users should match
+        //  No users should match
         assertTrue(result.isEmpty());
     }
 
-    // ==================== HELPER METHODS ====================
+    //  HELPER METHODS ------------------
 
     /**
      * Helper method to create a User entity for testing.

@@ -22,28 +22,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Unit tests for AuthController.
  * 
- * Tests the /api/auth/register and /api/auth/login endpoints.
+ * These aer the tests for /api/auth/register and /api/auth/login endpoints.
  * Uses MockMvc to simulate HTTP requests without starting a full server.
  */
+
 @WebMvcTest(AuthController.class)
 @DisplayName("AuthController Tests")
 public class AuthControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    private MockMvc mockMvc; // This is used to simulate HTTP requests without starting a full server.
 
     @MockBean
-    private AuthService authService;
+    private AuthService authService; // This is used to mock the AuthService interface.
 
     @Autowired
-    private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper; //  This is used to convert JSON to Java objects and vice versa
 
-    // ==================== REGISTER ENDPOINT TESTS ====================
+    //  REGISTER ENDPOINT TESTS ------------------
 
     @Test
     @DisplayName("POST /api/auth/register - Success: Should register a new user")
     void testRegisterUser_Success() throws Exception {
-        // ARRANGE: Prepare request and expected response
+         // Prepare request and expected response
         RegisterRequest request = new RegisterRequest();
         request.setName("Test User");
         request.setEmail("test@example.com");
@@ -51,10 +52,10 @@ public class AuthControllerTest {
 
         ApiResponse expectedResponse = new ApiResponse(true, "User registered successfully");
 
-        when(authService.registerUser(any(RegisterRequest.class)))
+        when(authService.registerUser(any(RegisterRequest.class))) 
                 .thenReturn(ResponseEntity.ok(expectedResponse));
 
-        // ACT & ASSERT: Send request and verify response
+        // Send request and verify response
         mockMvc.perform(post("/api/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
@@ -63,12 +64,12 @@ public class AuthControllerTest {
                 .andExpect(jsonPath("$.message").value("User registered successfully"));
     }
 
-    // ==================== LOGIN ENDPOINT TESTS ====================
+    //  LOGIN ENDPOINT TESTS ------------------
 
     @Test
     @DisplayName("POST /api/auth/login - Success: Should login existing user")
     void testLoginUser_Success() throws Exception {
-        // ARRANGE: Prepare request and expected response
+        // Prepare request and expected response
         LoginRequest request = new LoginRequest();
         request.setEmail("test@example.com");
         request.setPassword("password123");
@@ -78,7 +79,7 @@ public class AuthControllerTest {
         when(authService.loginUser(any(LoginRequest.class)))
                 .thenReturn(ResponseEntity.ok(expectedResponse));
 
-        // ACT & ASSERT: Send request and verify response
+        // Send request and verify response
         mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))

@@ -16,9 +16,19 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
-      setMsg(data.message);
-      if (data.success) setTimeout(() => navigate("/dashboard"), 500);
+      {/*added this  small logic to get userId on login
+        othwerwise a user could see himself in teh recommened users section*/}
+      {/*this helps in recommendations and survey*/}
+      const data = await res.json()
+      setMsg(data.message)
+      if (data.success) {
+        const userRes = await fetch('http://localhost:8080/api/users/getAllUsers', { method: 'POST' })
+        const users = await userRes.json()
+        {/* Find the logged-in user by email */}
+        const user = users.find(u => u.email === email)
+        if (user) localStorage.setItem('userId', user.id)
+        setTimeout(() => navigate('/dashboard'), 500)
+      }
     } catch {
       setMsg("Sorry. Unable to process request");
     }

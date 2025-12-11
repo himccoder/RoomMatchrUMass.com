@@ -1,18 +1,13 @@
 .profile-page { background: #f8f9fa; min-height: calc(100vh - 60px); }
-.profile-container { max-width: 1400px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 280px 1fr; gap: 24px; }
-.profile-sidebar { background: white; border: 1px solid #ddd; padding: 16px; }
-.profile-nav { display: flex; flex-direction: column; gap: 4px; }
-.nav-item { width: 100%; padding: 10px 12px; background: none; border: none; text-align: left; font-size: 15px; color: #555; cursor: pointer; }
-.nav-item.active { background: #881c1c; color: white; }
-.profile-content { background: white; border: 1px solid #ddd; padding: 24px; }
-.profile-content h1 { font-size: 24px; color: #333; margin: 0 0 24px; }
-.profile-section h2 { font-size: 20px; color: #333; margin: 0 0 16px; }
-.form-actions { display: flex; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
-.btn-save { padding: 8px 20px; background: white; border: 1px solid #881c1c; color: #881c1c; font-size: 14px; font-weight: 600; cursor: pointer; }
+.profile-container { max-width: 900px; margin: 0 auto; padding: 24px; }
+.profile-content { background: white; border: 1px solid #ddd; padding: 32px; }
+.profile-content h1 { font-size: 28px; color: #333; margin: 0 0 24px; }
+.profile-section { max-width: 600px; }
+.form-actions { display: flex; gap: 12px; margin-top: 24px; }
+.btn-save { padding: 10px 24px; background: #881c1c; border: none; color: white; font-size: 14px; font-weight: 600; cursor: pointer; }
+.btn-save:hover { background: #6d1616; }
 .form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 6px; }
-.form-group input[type="text"], .form-group input[type="number"], .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ccc; font-size: 14px; font-family: inherit; }
-.form-group textarea { resize: vertical; }
-.checkbox-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-.checkbox-list label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: normal; color: #555; }
-.checkbox-list input[type="checkbox"] { cursor: pointer; accent-color: #881c1c; }
+.form-group label { display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 8px; }
+.form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; font-size: 14px; font-family: inherit; background: white; cursor: pointer; }
+.form-group select:focus { outline: 2px solid #881c1c; border-color: #881c1c; }
+

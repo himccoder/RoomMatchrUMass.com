@@ -140,6 +140,105 @@ Note: To see all possible options that request body can take, please refer to: r
 }
 ```
 
+### 4. Get List of All Users
+
+**Method:** POST  
+**URL:** `/api/users/getAllUsers`
+
+**Request Body**
+
+```json
+{}
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "id": 1
+  },
+  {
+    "name": "Jack Williams",
+    "email": "jack@example.com",
+    "id": 2
+  },
+  {
+    "name": "Toby Pitt",
+    "email": "toby@example.com",
+    "id": 3
+  }
+]
+```
+
+### 5. Get List of Filtered Users
+
+**Method:** POST  
+**URL:** `/api/users/getFilteredUsers`
+
+**Request Body**
+
+```json
+{
+  "sleepSchedule": "NIGHT_OWL",
+  "foodType": "VEGETARIAN",
+  "personalityType": "INTROVERT",
+  "petsPreference": "NO_PETS",
+  "smokingPreference": "NO_PREFERENCE"
+}
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "id": 1
+  },
+  {
+    "name": "Jack Williams",
+    "email": "jack@example.com",
+    "id": 2
+  }
+]
+```
+
+### 6. Get List of Recommended Users
+
+**Method:** POST  
+**URL:** `/api/users/getRecommendedUsers`
+
+**Request Body**
+
+```json
+{
+  "userId": 1
+}
+```
+
+**Response**
+
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "id": 1,
+    "percentMatch": 80.0
+  },
+  {
+    "name": "Jack Williams",
+    "email": "jack@example.com",
+    "id": 2,
+    "percentMatch": 40.0
+  }
+]
+```
+
 ## Steps to Integrate SQL server
 
 ### macOS

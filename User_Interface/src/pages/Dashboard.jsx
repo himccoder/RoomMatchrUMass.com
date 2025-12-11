@@ -1,33 +1,32 @@
 import { Link } from "react-router-dom";
 import RoommateCard from "../components/RoommateCard";
-import { getRecommendedRoommates } from "../data/mockRoommates";
 import "./Dashboard.css";
 import { useState, useEffect } from "react";
 
 function Dashboard() {
-  const recommendedRoommates = getRecommendedRoommates(2);
   const [users, setUsers] = useState([]);
+  {/*to hold recommended users*/}
+  const [recommended, setRecommended] = useState([]);
 
   useEffect(() => {
-    async function fetchAllUsers() {
+    async function fetchData() {
       try {
-        const res = await fetch("http://localhost:8080/api/users/getAllUsers", {
+        const allRes = await fetch("http://localhost:8080/api/users/getAllUsers", {
           method: "POST",
         });
+        if (allRes.ok) setUsers(await allRes.json());
 
-        if (!res.ok) {
-          throw new Error(
-            `Error: Could not get an ok response back. Status: ${res.status}`
-          );
-        }
-        const data = await res.json();
-        setUsers(data);
+        const userId = localStorage.getItem('userId') || 1
+        const recRes = await fetch(`http://localhost:8080/api/users/getRecommendedUsers?userId=${userId}`, {
+          method: "POST",
+        });
+        if (recRes.ok) setRecommended(await recRes.json());
       } catch (err) {
-        console.error("Error: Could not load the users:", err);
+        console.error("Error loading data:", err);
       }
     }
-
-    fetchAllUsers();
+{/* Fetch all users and recommended roommates on component mount */}
+    fetchData();
   }, []);
 
   return (
@@ -41,7 +40,8 @@ function Dashboard() {
           </Link>
         </div>
         <div className="browse-grid">
-          {users.map((roommate) => (
+          {/*display first 4 users as a preview*/}
+          {users.slice(0, 4).map((roommate) => (
             <RoommateCard key={roommate.id} roommate={roommate} />
           ))}
         </div>
@@ -53,8 +53,8 @@ function Dashboard() {
           <h2>Recommended Roommates</h2>
         </div>
         <div className="recommendations-grid">
-          {recommendedRoommates.map((roommate) => (
-            <RoommateCard key={roommate.id} roommate={roommate} />
+          {/*display recommended users*/}
+          {recommended.map((roommate) => ( <RoommateCard key={roommate.id} roommate={roommate} />
           ))}
         </div>
       </section>

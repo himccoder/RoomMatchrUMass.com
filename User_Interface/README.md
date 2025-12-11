@@ -10,7 +10,8 @@ npm run dev
 ```
 
 Frontend will run on `http://localhost:5173`
-Make sure the backend is running on `http://localhost:8080`
+
+Make sure the backend is running on `http://localhost:8080` 
 
 ## Test the Application
 1. Sign up with a `@umass.edu` email

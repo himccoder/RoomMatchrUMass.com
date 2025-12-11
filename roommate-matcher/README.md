@@ -1,6 +1,6 @@
 # Roommate Matcher Backend (Spring Boot)
 
-This is the backend REST API for the Roommate Matcher application. It is built using Spring Boot, it uses an in-memory H2 database for development and testing. SQL DB to be added soon.
+This is the backend REST API for the Roommate Matcher application. It is built using Spring Boot. It is integrated with MySQL server which serves as the database of the application.
 
 ## Getting Started
 

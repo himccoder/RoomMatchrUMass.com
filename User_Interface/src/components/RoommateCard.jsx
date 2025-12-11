@@ -20,12 +20,6 @@ function RoommateCard({ roommate }) {
           <button className="favorite-btn">☆</button>
         </div>
 
-        <div className="card-info">
-          <span className="info-item">{roommate.age} years old</span>
-          <span className="info-separator">•</span>
-          <span className="info-item">{roommate.major}</span>
-        </div>
-
         <p className="card-description">{roommate.description}</p>
 
         <div className="card-actions">

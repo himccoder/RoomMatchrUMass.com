@@ -227,12 +227,14 @@ Note: To see all possible options that request body can take, please refer to: r
   {
     "name": "John Doe",
     "email": "john@example.com",
-    "id": 1
+    "id": 1,
+    "percentMatch": 80.0
   },
   {
     "name": "Jack Williams",
     "email": "jack@example.com",
-    "id": 2
+    "id": 2,
+    "percentMatch": 40.0
   }
 ]
 ```

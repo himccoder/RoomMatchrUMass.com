@@ -9,9 +9,9 @@ this application arises from limitations of the current opaque SPIRE roommate ma
 SPIRE website lacks the search and filter features for finding a roommate. Our application would allow a user to use advanced filters to search the kind of roommate they need. We also plan to implement matching algorithms to come up with top “K” matches for any user.
 Our application would prioritize safety by providing secure authorization and authentication while hiding more sensitive questionnaire information. We improve accessibility and decision making by providing the above mentioned features pertaining to algorithmic matching and manual filtering. If time permits, we also plan to integrate LLM functionality such that it is easier to search for the closest matching roommates through prompts.
 
-## Documentation on Backend
+## Documentation on Running and Deploying Backend
 
 Please refer to the inner README.md file at https://github.com/himccoder/RoomMatchrUMass.com/blob/main/roommate-matcher/README.md
 
-## Documentation on Frontend
+## Documentation on Running and Deploying Frontend
 Please refer to the inner README.md file at https://github.com/himccoder/RoomMatchrUMass.com/blob/main/User_Interface/README.md

@@ -13,5 +13,8 @@ Our application would prioritize safety by providing secure authorization and au
 
 Please refer to the inner README.md file at https://github.com/himccoder/RoomMatchrUMass.com/blob/main/roommate-matcher/README.md
 
+## API Document
+Please refer to https://github.com/himccoder/RoomMatchrUMass.com/blob/main/roommate-matcher/API_DOCUMENT.md
+
 ## Documentation on Running and Deploying Frontend
 Please refer to the inner README.md file at https://github.com/himccoder/RoomMatchrUMass.com/blob/main/User_Interface/README.md
